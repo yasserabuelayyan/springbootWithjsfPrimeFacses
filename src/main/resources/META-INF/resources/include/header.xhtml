@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	 >
+<h:head>
+
+	<link href="assets/images/favicon.ico" rel="stylesheet" />
+
+	<!-- Table Responsive css -->
+
+	<link href="../../plugins/responsive-table/css/rwd-table.min.css"
+		rel="stylesheet" media="screen" />
+
+	<!-- App css -->
+
+	<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../../assets/css/icons.css" rel="stylesheet" />
+	<link href="../../assets/css/metismenu.min.css" rel="stylesheet" />
+	<link href="../../assets/css/style.css/" rel="stylesheet" />
+
+
+
+
+
+
+	<script src="../../assets/js/modernizr.min.js"></script>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Hello Spring Boot with JSF</title>
+</h:head>
+<h:body>
+	<style>
+	
+	.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+     background-color: #f51200 !important;
+     color: white !important;
+     
+}
+	
+	
+ .ui-row-editor .ui-row-editor-pencil {
+        margin-left:8px;
+    }
+
+.ui-datatable tbody td {
+    border-color: #f51200;
+    
+    }
+ 
+.ui-widget-header {
+
+background: #f51200 -webkit-gradient(linear, left top, left bottom, from(rgba(240, 149, 149, 0.81)), to(rgba(221, 189, 189, 0.95))) !important;
+    color: white !important;
+
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield
+{
+
+background: #f51200 -webkit-gradient(linear, left top, left bottom, from(rgba(72, 71, 66, 0.8)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+ color:#d61c1c;
+
+}
+.ui-button-text-only .ui-button-text{
+background: #f51200 -webkit-gradient(linear, left top, left bottom, from(rgba(72, 71, 66, 0.8)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+    color: white !important;
+    /* text-shadow: 0px 1px 0px rgba(255,255,255,0.7); */
+}
+.ui-datatable .ui-datatable-header, .ui-datatable .ui-datatable-footer{
+
+ text-align: right !important;
+ background:#f51200 -webkit-gradient(linear, left top, left bottom, from(rgba(240, 149, 149, 0.81)), to(rgba(221, 189, 189, 0.95))) !important;
+     
+    color:white !important;
+}
+
+
+
+ 
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+background: #f51200 -webkit-gradient(linear, left top, left bottom, from(rgba(72, 71, 66, 0.8)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+    color: white !important;
+}
+
+.ui-datatable .ui-column-filter{
+background: #fff -webkit-gradient(linear, left top, left bottom, from(rgba(240, 172, 171, 0.95)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+ color:#d61c1c !important;
+ width: 100% !important;
+}
+ 
+ 
+.ui-datatable th {
+    background-color: #f51200 !important;
+    vertical-align: top !important;
+}
+
+ 
+
+.ui-datatable tbody td {
+      background-color: #f6e2e24a; !important;
+    vertical-align: top !important;
+}
+
+.ui-datatable table{
+     border-style:solid;
+      border-color:#d61c1c;
+      border-width: 2px;
+}
+
+  
+
+.side-menu {
+background: #f51200 -webkit-gradient(linear, left top, left bottom, from(rgba(72, 71, 66, 0.8)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+ 
+}
+
+
+ 
+body{
+
+color:white;
+}
+.navbar-custom {
+    /* background-color: #64c5b1; */
+background: #f51200 -webkit-gradient(linear, left top, left bottom, from(rgba(72, 71, 66, 0.8)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+   font-weight: bold !important;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0 10px;
+    margin-left: 240px;
+    min-height: 70px;
+}
+
+.button-menu-mobile {
+    border: none;
+    color: #ffffff;
+    display: inline-block;
+    height: 70px;
+    width: 60px;
+    /* background-color: #64c5b1; */
+    font-size: 16px;
+background: #d61c1c -webkit-gradient(linear, left top, left bottom, from(rgba(72, 71, 66, 0.8)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+ }
+
+
+.white {
+	background-color: white !important;
+        background-image: none !important;
+        color: #000000 !important;
+}
+
+.black {
+	background: black important;
+}
+
+.menuLink {
+	color: rgba(255, 255, 255, 0.6);
+	display: block;
+	padding: 14px 20px;
+	margin: 2px 0;
+	font-size: 1rem;
+	position: relative;
+}
+
+.menuLink:hover {
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #2f3642;
+}
+
+.gold {
+	color: gold;
+}
+
+.uperCase {
+	text-transform: capitalize;
+}
+
+i:hover {
+	background-color: #64c5b15e !important;
+}
+
+.editpageBtn:hover {
+	background-color: #64c5b15e !important;
+}
+
+.btn:hover {
+	background-color: #64c5b15e !important;
+}
+
+.btnAdd:hover {
+	background-color: #64c5b15e !important;
+}
+
+.editpageBtn {
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	min-width: 100px;
+	height: 30px;
+	background-color: #64c5b1;
+	border-radius: 5px;
+	font-size: 15px;
+	color: #fff;
+	line-height: 1.2;
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+}
+
+
+
+
+.btn {
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	min-width: 100px;
+	height: 30px;
+	background-color: #64c5b1;
+	border-radius: 5px;
+	font-size: 15px;
+	color: #fff;
+	line-height: 1.2;
+	display: inline-block;
+	float: left;
+	margin-right: 3px;
+}
+
+.btnAdd {
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	min-width: 100px;
+	height: 30px;
+	background: #d61c1c -webkit-gradient(linear, left top, left bottom, from(rgba(72, 71, 66, 0.8)), to(rgba(33, 15, 15, 0))) !important; font-weight: bold !important;
+ 
+	border-radius: 5px;
+	margin-left: 50%;
+	font-size: 18px;
+	color: #fff;
+	line-height: 1.2;
+}
+</style>
+	<div class="topbar">
+
+		<!-- LOGO -->
+		<div class="topbar-left">
+			<a href="index.html" class="logo"> <span style="color: white;">
+					<h:graphicImage url="../../assets/images/LogoL.jpg" alt="logo"
+						style="width: 100%; height: 73px; margin-top: -10px;" height="25" />
+			</span> <i> <h:graphicImage url="../../assets/images/LogoS.jpg"
+						alt="logo" style="width: 100%; height: 73px; margin-top: -10px;"
+						height="28" />
+			</i>
+			</a>
+		</div>
+
+		<nav class="navbar-custom">
+
+			<ul class="list-inline float-right mb-0">
+
+
+				<li class="list-inline-item dropdown notification-list uperCase"><span
+					style="margin-right: 35px"> #{l['language']}</span> <span
+					style="color: white;">#{l['welcome']}
+						#{helloWorldBean.employee.firstName}
+						#{helloWorldBean.employee.lastName}</span><a
+					class="nav-link dropdown-toggle waves-effect waves-light nav-user"
+					data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+					aria-expanded="false"> <h:graphicImage
+							url="../../assets/images/users/avatar-10.jpg" alt="user"
+							class="rounded-circle" />
+				</a>
+					<div class="dropdown-menu dropdown-menu-right profile-dropdown "
+						aria-labelledby="Preview">
+						<h:form>
+							<h:commandLink value="#{l['profile']}"
+								class="dropdown-item notify-item"
+								action="#{helloWorldBean.goToprofile}">
+								<f:param name="emploueeIDParam"
+									value="#{helloWorldBean.employee.id}" />
+							</h:commandLink>
+							<!-- item-->
+
+							<h:commandLink value="#{l['logout']}"
+								class="dropdown-item notify-item"
+								action="#{helloWorldBean.logout}">
+
+							</h:commandLink>
+							<!-- item-->
+
+						</h:form>
+
+					</div></li>
+
+			</ul>
+
+			<ul class="list-inline menu-left mb-0">
+				<li class="float-left">
+					<button
+						class="button-menu-mobile open-left waves-light waves-effect">
+						<i class="dripicons-menu"></i>
+					</button>
+				</li>
+
+			</ul>
+
+		</nav>
+
+	</div>
+
+</h:body>
+</html>

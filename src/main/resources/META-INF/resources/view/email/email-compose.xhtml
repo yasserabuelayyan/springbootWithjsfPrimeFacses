@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:prime="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Hello Spring Boot with JSF</title>
+</h:head>
+<h:body>
+
+	<!-- Begin page -->
+	<div id="wrapper">
+
+
+		<!-- Top Bar Start -->
+
+		<ui:include src="../../include/header.xhtml" />
+		<!-- Top Bar End -->
+
+		<!-- ========== Left Sidebar Start ========== -->
+		<ui:include src="../../include/menu.xhtml" />
+
+
+
+
+
+		<!-- ============================================================== -->
+		<!-- Start right Content here -->
+		<!-- ============================================================== -->
+		<div class="content-page">
+			<!-- Start content -->
+			<div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box">
+								<h4 class="page-title float-left">Compose</h4>
+
+								<ol class="breadcrumb float-right">
+									<li class="breadcrumb-item"><a href="#">Adminox</a></li>
+									<li class="breadcrumb-item"><a href="#">Email</a></li>
+									<li class="breadcrumb-item active">Compose</li>
+								</ol>
+
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<!-- end row -->
+
+					<div class="row">
+
+						<!-- Right Sidebar -->
+						<div class="col-lg-12">
+							<div class="card-box">
+								<!-- Left sidebar -->
+								<div class="inbox-leftbar">
+
+
+									<div class="mail-list m-t-20">
+										<h:form>
+											<h:commandLink class="list-group-item b-0"
+												action="#{helloWorldBean.goToEmailInbox}">
+												<i class="mdi mdi-inbox font-18 vertical-middle m-r-10"></i>
+												<b>Inbox</b>
+												<span class="badge badge-danger float-right m-l-15">#{helloWorldBean.inboxsNumber}</span>
+											</h:commandLink>
+											<h:commandLink class="list-group-item b-0"
+												action="#{helloWorldBean.goToEmailStarred}">
+												<i class="mdi mdi-star font-18 vertical-middle m-r-10"></i>Starred </h:commandLink>
+											<h:commandLink class="list-group-item b-0"
+												action="#{helloWorldBean.goToEmailSend}">
+												<i class="mdi mdi-send font-18 vertical-middle m-r-10"></i>Sent
+											Mail </h:commandLink>
+
+										</h:form>
+									</div>
+
+
+
+
+								</div>
+								<!-- End Left sidebar -->
+
+								<div class="inbox-rightbar">
+
+									<span style="color: black; font-weight: bold">New
+										Massage </span>
+
+									<div class="card-box m-t-20">
+
+										<h:form id="ComposeForm">
+
+											<h:messages id="ErrorMsg" layout="table"
+												style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 11px;
+		                                                font-weight: bold;color: #FF0000;
+		                                                padding-top: 2px;padding-bottom: 2px;" />
+
+
+											<div class="form-group">
+												<h:inputText value="#{helloWorldBean.email.emailTo}"
+													required="true" requiredMessage="Enter Email" id="email"
+													class="form-control" pt:placeholder="To">
+													<f:validator validatorId="EmailValidator" />
+
+												</h:inputText>
+												<h:message for="email" style="color:red" />
+
+											</div>
+
+											<div class="form-group">
+												<h:inputText value="#{helloWorldBean.email.subject}"
+													required="true" requiredMessage="Enter Subject"
+													id="subject" class="form-control" pt:placeholder="Subject" />
+												<h:message for="subject" style="color:red" />
+											</div>
+
+
+											<div class="form-group row">
+
+												<h:inputTextarea value="#{helloWorldBean.email.massage}"
+													required="true" requiredMessage="Enter Message" row="10"
+													col="10" class="form-control" id="massage"
+													pt:placeholder="Message" />
+												<h:message for="massage" style="color:red" />
+
+											</div>
+
+
+
+											<div class="form-group m-b-0">
+												<div class="text-right">
+													<h:commandButton value="Send"
+														action="#{helloWorldBean.composeEmail}"
+														class="editpageBtn">
+
+													</h:commandButton>
+												</div>
+											</div>
+
+										</h:form>
+									</div>
+									<!-- end card-->
+
+								</div>
+
+								<div class="clearfix"></div>
+							</div>
+
+						</div>
+						<!-- end Col -->
+
+					</div>
+					<!-- End row -->
+
+
+				</div>
+				<!-- container -->
+
+			</div>
+			<!-- content -->
+
+			<ui:include src="../../include/footer.xhtml" />
+
+		</div>
+
+
+		<!-- ============================================================== -->
+		<!-- End Right content here -->
+		<!-- ============================================================== -->
+
+
+	</div>
+	<!-- END wrapper -->
+
+
+
+	<!-- jQuery  -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/tether.min.js"></script>
+	<!-- Tether for Bootstrap -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/metisMenu.min.js"></script>
+	<script src="assets/js/waves.js"></script>
+	<script src="assets/js/jquery.slimscroll.js"></script>
+
+	<!--Summernote js-->
+	<script src="../plugins/summernote/summernote.min.js"></script>
+
+	<!-- App js -->
+	<script src="assets/js/jquery.core.js"></script>
+	<script src="assets/js/jquery.app.js"></script>
+
+	<script>
+		jQuery(document).ready(function() {
+			$('.summernote').summernote({
+				height : 350, // set editor height
+				minHeight : null, // set minimum height of editor
+				maxHeight : null, // set maximum height of editor
+				focus : false
+			// set focus to editable area after initializing summernote
+			});
+		});
+	</script>
+
+</h:body>
+</html>
+

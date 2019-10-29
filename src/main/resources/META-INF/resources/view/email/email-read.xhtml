@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:prime="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Hello Spring Boot with JSF</title>
+</h:head>
+<h:body>
+
+	<!-- Begin page -->
+	<div id="wrapper">
+
+
+
+		<!-- Top Bar Start -->
+
+		<ui:include src="../../include/header.xhtml" />
+		<!-- Top Bar End -->
+
+		<!-- ========== Left Sidebar Start ========== -->
+		<ui:include src="../../include/menu.xhtml" />
+
+		<div class="content-page">
+			<!-- Start content -->
+			<div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box">
+								<h4 class="page-title float-left">Inbox</h4>
+
+								<ol class="breadcrumb float-right">
+									<li class="breadcrumb-item"><a href="#">Adminox</a></li>
+									<li class="breadcrumb-item"><a href="#">Email</a></li>
+									<li class="breadcrumb-item active">Inbox</li>
+								</ol>
+
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<!-- end row -->
+
+					<div class="row">
+
+						<!-- Right Sidebar -->
+						<div class="col-lg-12">
+							<div class="card-box">
+								<!-- Left sidebar -->
+								<div class="inbox-leftbar">
+									<h:form>
+										<h:commandLink
+											class="btn-danger btn-block waves-effect waves-light"
+											value="Compose" action="#{helloWorldBean.goToEmailCompose}"></h:commandLink>
+									</h:form>
+
+									<div class="mail-list m-t-20">
+										<h:form>
+											<h:commandLink class="list-group-item b-0 text-danger"
+												action="#{helloWorldBean.goToEmailInbox}">
+												<i class="mdi mdi-inbox font-18 vertical-middle m-r-10"></i>
+												<b>Inbox</b>
+												<span class="badge badge-danger float-right m-l-15">#{helloWorldBean.inboxsNumber}</span>
+											</h:commandLink>
+											<h:commandLink class="list-group-item b-0"
+												action="#{helloWorldBean.goToEmailStarred}">
+												<i class="mdi mdi-star font-18 vertical-middle m-r-10"></i>Starred </h:commandLink>
+											<h:commandLink class="list-group-item b-0"
+												action="#{helloWorldBean.goToEmailSend}">
+												<i class="mdi mdi-send font-18 vertical-middle m-r-10"></i>Sent
+											Mail </h:commandLink>
+
+										</h:form>
+									</div>
+
+
+
+								</div>
+								<!-- End Left sidebar -->
+
+								<div class="inbox-rightbar">
+
+
+
+									<div class="">
+
+
+                                        <div class="card-box m-t-20">
+                                            <h4 class="m-t-0"><b>#{helloWorldBean.email.subject} </b></h4>
+
+                                            <hr/>
+
+                                            <div class="media m-b-30 ">
+                                            
+                                                <div class="media-body">
+                                                    <span class="media-meta pull-right">#{helloWorldBean.email.timeMassage} </span>
+                                                    <h4 class="text-primary m-0">#{helloWorldBean.email.fromName} </h4>
+                                                    <small class="text-muted">From: #{helloWorldBean.email.fromEmail}</small>
+                                                </div>
+                                            </div> <!-- media -->
+
+                                             
+                                            <p>#{helloWorldBean.email.massage}</p>
+                                            <hr/>
+
+                   
+            
+                                        </div> <!-- card-box -->
+
+
+										<!-- panel body -->
+									</div>
+									<!-- panel -->
+
+									<div class="row">
+
+										<div class="col-5">
+											<div class="btn-group float-right">
+												<button type="button" class="btn-secondary waves-effect">
+													<i class="fa fa-chevron-left"></i>
+												</button>
+												<button type="button" class="btn-secondary waves-effect">
+													<i class="fa fa-chevron-right"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="clearfix"></div>
+							</div>
+
+						</div>
+						<!-- end Col -->
+
+					</div>
+					<!-- End row -->
+
+
+				</div>
+				<!-- container -->
+
+			</div>
+			<!-- content -->
+			<ui:include src="../../include/footer.xhtml" />
+
+		</div>
+
+
+		<!-- ============================================================== -->
+		<!-- End Right content here -->
+		<!-- ============================================================== -->
+
+
+	</div>
+	<!-- END wrapper -->
+
+
+
+	<!-- jQuery  -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/tether.min.js"></script>
+	<!-- Tether for Bootstrap -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/metisMenu.min.js"></script>
+	<script src="assets/js/waves.js"></script>
+	<script src="assets/js/jquery.slimscroll.js"></script>
+
+	<!-- App js -->
+	<script src="assets/js/jquery.core.js"></script>
+	<script src="assets/js/jquery.app.js"></script>
+
+</h:body>
+</html>
+
